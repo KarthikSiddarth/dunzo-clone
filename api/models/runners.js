@@ -5,3 +5,5 @@ const runnerSchema = Schema({
   currentTasks: {}, // get it from orders collection
   pastTasks: {} // get it from orders collection
 })
+
+module.exports = mongoose.model('Runner', runnerSchema)

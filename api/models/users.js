@@ -6,3 +6,5 @@ const userSchema = Schema({
   pastOrders: [/*get from orders collection*/],
   currentOrder: {}// get it from orders collection
 })
+
+module.exports = mongoose.model('User', userSchema)
