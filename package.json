@@ -1,0 +1,22 @@
+{
+  "name": "dunzo-clone",
+  "version": "1.0.0",
+  "description": "dunzo clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarthikSiddarth/dunzo-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarthikSiddarth/dunzo-clone/issues"
+  },
+  "homepage": "https://github.com/KarthikSiddarth/dunzo-clone#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
