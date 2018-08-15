@@ -6,6 +6,7 @@ router.post('/:id', async (req, res) => {
   const runnerId = (await Runner.findOne({_id: req.params.id}))._id
   const orderId = req.body.takeOrder
   try {
+    if (!orderId) { throw Error('no order id provided') }
     await Promise.all([
       Order.update({_id: orderId}, {$set: {status: 'assigned', runner: runnerId}}),
       Runner.update({_id: runnerId}, {$set: {currentOrder: orderId}})
