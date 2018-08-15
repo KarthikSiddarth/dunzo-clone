@@ -8,13 +8,16 @@ const appOptions = {
                   :showStatus="showStatus"
                   :orderPlacementStatus="orderPlacementStatus"
                   @view-orders="showOrders" />
+                <show-orders 
+                  :orders="placedOrders" />
              </div>`,
   el: '#app',
   data: {
     orderDescription: '',
     showNoOrderWarning: false,
     showStatus: false,
-    orderPlacementStatus: ''
+    orderPlacementStatus: '',
+    placedOrders: []
   },
   methods: {
     placeOrder: placeOrderFunction,
@@ -31,4 +34,5 @@ const appOptions = {
 }
 
 Vue.component('place-order', placeOrderOptions)
+Vue.component('show-orders', showPlacedOrdersOptions)
 const app = new Vue(appOptions)

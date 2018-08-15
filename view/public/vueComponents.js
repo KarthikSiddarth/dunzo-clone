@@ -14,8 +14,8 @@ const placeOrderOptions = {
 const showPlacedOrdersOptions = {
   template: `<div>
               <ul>
-                <li v-for="order of orders">{{ orders.description }} <span>status {{ orders.status }}</span></li>
+                <li v-for="order of orders">{{ order.description }} <span>status {{ order.status }}</span></li>
               </ul>
-             <div>`,
+             </div>`,
   props: ['orders']
 }
