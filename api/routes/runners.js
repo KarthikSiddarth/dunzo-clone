@@ -3,11 +3,13 @@ const Order = require('../models/orders')
 const Runner = require('../models/runners')
 
 router.post('/:id', async (req, res) => {
-  const runnerId = (await Runner.findOne({_id: req.params.id}))._id
-  const orderId = req.body.takeOrder
   try {
+    const orderId = req.body.takeOrder
+    if (!orderId) { throw Error('no order id provided') }
+    const runnerId = (await Runner.findOne({_id: req.params.id}))._id
+    if (!runnerId) { throw Error('no such runner') }
     await Promise.all([
-      Order.update({_id: orderId}, {$set: {status: 'pending', runner: runnerId}}),
+      Order.update({_id: orderId}, {$set: {status: 'assigned', runner: runnerId}}),
       Runner.update({_id: runnerId}, {$set: {currentOrder: orderId}})
     ])
     res.status(200).json({message: 'order assigned'})
