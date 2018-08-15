@@ -14,7 +14,7 @@ const placeOrderOptions = {
 const showPlacedOrdersOptions = {
   template: `<div>
               <ul>
-                <li v-for="order of orders">{{ order.description }} <span>status: {{ order.status }}</span></li>
+                <li v-for="order of orders">{{ order.description }} <span>status: {{ order.status }}</span><button v-if="$route.path === '/runner'" @click="$emit('assign-order', order)">Assign</button></li>
               </ul>
              </div>`,
   props: ['orders']
@@ -45,7 +45,7 @@ const userViewOptions = {
   methods: {
     placeOrder: placeOrderFunction,
     showOrders: showOrdersFunction,
-    getStatus: getStatusFunction
+    getStatus: getStatusFunction,
   },
   watch: {
     orderDescription () {
@@ -61,7 +61,8 @@ const runnerViewOptions = {
               <h3>Welcome, Runner</h3>
               <a @click="showOrders">View Placed Orders</a>
               <show-orders 
-                :orders="placedOrders" />
+                :orders="placedOrders"
+                @assign-order="assignOrder" />
             </div>`,
   data () {
     return {
@@ -69,6 +70,7 @@ const runnerViewOptions = {
     }
   },
   methods: {
-    showOrders: showOrdersFunction
+    showOrders: showOrdersFunction,
+    assignOrder: assignOrderFunction
   }
 }
