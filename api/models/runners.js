@@ -1,9 +1,9 @@
-const { Schema, model } = require('mongoose')
+const mongoose = require('mongoose')
 
-const runnerSchema = Schema({
+const runnerSchema = mongoose.Schema({
   name: { type: String, required: true },
-  currentOrder: { type: Schema.Types.ObjectId, ref: 'Order' },
-  pastOrders: [{ type: Schema.Types.ObjectId, ref: 'Order' }]
+  currentOrder: { type: mongoose.Schema.Types.ObjectId, ref: 'Order' },
+  pastOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }]
 })
 
-module.exports = model('Runner', runnerSchema)
+module.exports = mongoose.model('Runner', runnerSchema)

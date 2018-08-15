@@ -1,10 +1,10 @@
-const { Schema, model } = require('mongoose')
+const mongoose = require('mongoose')
 
-const userSchema = Schema({
+const userSchema = mongoose.Schema({
   name: { type: String, required: true },
   address: { type: String, required: true },
-  pastOrders: [{ type: Schema.Types.ObjectId, ref: 'Order' }],
-  currentOrder: { type: Schema.Types.ObjectId, ref: 'Order' }
+  pastOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
+  currentOrder: { type: mongoose.Schema.Types.ObjectId, ref: 'Order' }
 })
 
-module.exports = model('User', userSchema)
+module.exports = mongoose.model('User', userSchema)
