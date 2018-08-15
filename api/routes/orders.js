@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const Order = require('../models/orders')
 
 router.get('/', (req, res) => {
   console.log(req.url)
@@ -7,7 +8,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   console.log(req.body)
-  res.status(200).json({message: 'your order has been placed'})
+  const order = new Order({
+    description: req.description
+  })
+  order.save()
+    .then((result) => { res.status(200).json({message: 'order placed', result: result}) })
+    .catch((err) => { res.status(500).json({message: 'order not placed', err: err}) })
 })
 
 module.exports = router
