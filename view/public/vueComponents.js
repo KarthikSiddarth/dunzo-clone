@@ -6,7 +6,7 @@ const placeOrderOptions = {
                  <button @click="$emit('place-order')">place</button>
                  <p v-if="showStatus">{{ orderPlacementStatus }}</p>
                </div>
-              <a @click="$emit('view-orders')">View My Orders</a>
+              <a @click="$emit('view-orders')">View Placed Orders</a>
              </div>`,
   props: ['showNoOrderWarning', 'showStatus', 'orderPlacementStatus']
 }
@@ -22,6 +22,7 @@ const showPlacedOrdersOptions = {
 
 const userViewOptions = {
   template: `<div>
+              <h3>Welcome, User</h3>
               <place-order 
                 v-model="orderDescription"
                 @place-order="placeOrder"
@@ -32,7 +33,7 @@ const userViewOptions = {
               <show-orders 
                 :orders="placedOrders" />
             </div>`,
-  data() { 
+  data () {
     return {
       orderDescription: '',
       showNoOrderWarning: false,
@@ -52,5 +53,22 @@ const userViewOptions = {
       this.orderPlacementStatus = ''
       if (this.orderDescription) this.showNoOrderWarning = false
     }
+  }
+}
+
+const runnerViewOptions = {
+  template: `<div>
+              <h3>Welcome, Runner</h3>
+              <a @click="showOrders">View Placed Orders</a>
+              <show-orders 
+                :orders="placedOrders" />
+            </div>`,
+  data () {
+    return {
+      placedOrders: []
+    }
+  },
+  methods: {
+    showOrders: showOrdersFunction
   }
 }
