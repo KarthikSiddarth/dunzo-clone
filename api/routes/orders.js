@@ -8,15 +8,25 @@ router.get('/', async (req, res) => {
   res.status(200).json({message: 'all the orders', orders})
 })
 
+router.get('/pending', async (req, res) => {
+  console.log(req.url)
+  let orders = await Order.find({status: 'pending'}).exec()
+  res.status(200).json(orders)
+})
+
 router.post('/', async (req, res) => {
   console.log(req.body)
   const order = new Order({
     ...req.body,
     user: (await User.findOne({ name: 'amogh' }).exec())._id
   })
-  order.save()
-    .then((result) => { res.status(200).json({message: 'order placed', result: result}) })
-    .catch((err) => { res.status(500).json({message: 'order not placed', err: err}) })
+  try {
+    let result = await order.save()
+    res.status(200).json({message: 'order placed', result: result})
+    await User.update({name: 'amogh'}, {$set: {currentOrder: result._id}})
+  } catch (err) {
+    res.status(500).json({message: 'order not placed', err: err})
+  }
 })
 
 module.exports = router
