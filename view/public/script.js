@@ -4,7 +4,8 @@ const appOptions = {
                 <place-order 
                   v-model="orderDescription"
                   @place-order="placeOrder"
-                  :showNoOrderWarning="showNoOrderWarning" />
+                  :showNoOrderWarning="showNoOrderWarning"
+                  @view-orders="showOrders" />
              </div>`,
   el: '#app',
   data: {
@@ -12,7 +13,8 @@ const appOptions = {
     showNoOrderWarning: false
   },
   methods: {
-    placeOrder: placeOrderFunction
+    placeOrder: placeOrderFunction,
+    showOrders: showOrdersFunction
   },
   watch: {
     orderDescription () {

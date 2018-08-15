@@ -18,3 +18,8 @@ function placeOrderFunction () {
   }
   this.showNoOrderWarning = true
 }
+
+function showOrdersFunction () {
+  const url = 'http://localhost:8000/api/orders/placed'
+  fetch(url).then(data => data.json()).then(console.log)
+}
