@@ -3,7 +3,7 @@ const appOptions = {
                 <h3>Welcome, User</h3>
                 <place-order 
                   v-model="orderDescription"
-                  @order="placeOrder"
+                  @place-order="placeOrder"
                   :showNoOrderWarning="showNoOrderWarning" />
              </div>`,
   el: '#app',
