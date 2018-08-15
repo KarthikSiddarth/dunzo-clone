@@ -16,10 +16,10 @@ router.get('/placed', async (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log(req.body)
-  const userId = (await User.findOne({ name: 'amogh' }).exec())._id
   try {
-    if (!userId) { throw Error('no such user') }
     if (!req.body.description) { throw Error('no description provided') }
+    const userId = (await User.findOne({ name: 'amogh' }).exec())._id
+    if (!userId) { throw Error('no such user') }
     const order = new Order({
       ...req.body,
       user: userId
@@ -33,8 +33,9 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const orderId = req.params.id
   try {
+    const orderId = req.params.id
+    if (!orderId) { throw Error('no order id provided') }
     let result = await Order.update({_id: orderId}, {$set: req.body})
     res.status(200).json({message: 'order updated', result})
   } catch (error) {
