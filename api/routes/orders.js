@@ -2,9 +2,10 @@ const router = require('express').Router()
 const Order = require('../models/orders')
 const User = require('../models/users')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   console.log(req.url)
-  res.status(200).json({message: 'Welcome, User'})
+  let orders = await Order.find({}).exec()
+  res.status(200).json({message: 'all the orders', orders})
 })
 
 router.post('/', async (req, res) => {
