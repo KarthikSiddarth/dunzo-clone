@@ -8,9 +8,9 @@ router.get('/', async (req, res) => {
   res.status(200).json({message: 'all the orders', orders})
 })
 
-router.get('/pending', async (req, res) => {
+router.get('/placed', async (req, res) => {
   console.log(req.url)
-  let orders = await Order.find({status: 'pending'}).exec()
+  let orders = await Order.find({status: 'placed'}).exec()
   res.status(200).json(orders)
 })
 
@@ -24,8 +24,8 @@ router.post('/', async (req, res) => {
     let result = await order.save()
     res.status(200).json({message: 'order placed', result: result})
     await User.update({name: 'amogh'}, {$set: {currentOrder: result._id}})
-  } catch (err) {
-    res.status(500).json({message: 'order not placed', err: err})
+  } catch (error) {
+    res.status(500).json({message: 'order not placed', error})
   }
 })
 
