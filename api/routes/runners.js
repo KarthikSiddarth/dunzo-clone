@@ -7,7 +7,7 @@ router.post('/:id', async (req, res) => {
   const orderId = req.body.takeOrder
   try {
     await Promise.all([
-      Order.update({_id: orderId}, {$set: {status: 'pending', runner: runnerId}}),
+      Order.update({_id: orderId}, {$set: {status: 'assigned', runner: runnerId}}),
       Runner.update({_id: runnerId}, {$set: {currentOrder: orderId}})
     ])
     res.status(200).json({message: 'order assigned'})
