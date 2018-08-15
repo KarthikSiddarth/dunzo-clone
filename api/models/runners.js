@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const runnerSchema = mongoose.Schema({
+const runnerSchema = new mongoose.Schema({
   name: { type: String, required: true },
   currentOrder: { type: mongoose.Schema.Types.ObjectId, ref: 'Order' },
   pastOrders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }]
