@@ -13,7 +13,9 @@ function placeOrderFunction () {
     const url = 'http://localhost:8000/api/orders'
     this.showNoOrderWarning = false
     let postOrderOptions = getPostOrderOptions(this.orderDescription)
-    fetch(url, postOrderOptions).then(data => data.json()).then(console.log)
+    fetch(url, postOrderOptions)
+      .then(data => data.json())
+      .then(this.getStatus)
     return
   }
   this.showNoOrderWarning = true
@@ -22,4 +24,13 @@ function placeOrderFunction () {
 function showOrdersFunction () {
   const url = 'http://localhost:8000/api/orders/placed'
   fetch(url).then(data => data.json()).then(console.log)
+}
+
+function getStatusFunction (response) {
+  this.showStatus = true
+  if (response.result.status) {
+    this.orderPlacementStatus = 'your order is placed :)'
+    return
+  }
+  this.orderPlacementStatus = 'your order did not get place :('
 }

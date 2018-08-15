@@ -5,19 +5,26 @@ const appOptions = {
                   v-model="orderDescription"
                   @place-order="placeOrder"
                   :showNoOrderWarning="showNoOrderWarning"
+                  :showStatus="showStatus"
+                  :orderPlacementStatus="orderPlacementStatus"
                   @view-orders="showOrders" />
              </div>`,
   el: '#app',
   data: {
     orderDescription: '',
-    showNoOrderWarning: false
+    showNoOrderWarning: false,
+    showStatus: false,
+    orderPlacementStatus: ''
   },
   methods: {
     placeOrder: placeOrderFunction,
-    showOrders: showOrdersFunction
+    showOrders: showOrdersFunction,
+    getStatus: getStatusFunction
   },
   watch: {
     orderDescription () {
+      this.showStatus = false
+      this.orderPlacementStatus = ''
       if (this.orderDescription) this.showNoOrderWarning = false
     }
   }
