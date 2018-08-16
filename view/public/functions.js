@@ -1,6 +1,4 @@
 const baseUrl = 'http://localhost:8000'
-const runnerId = '5b73f01754935f768d1cff79'
-const userId = '5b73ef0954935f768d1cff78'
 
 function getPostOrderOptions (orderDescription) {
   return {
@@ -28,7 +26,7 @@ function placeOrderFunction () {
 function showOrdersFunction () {
   this.showAssignments = false
   let url
-  if (this.$route.path === '/') {
+  if (this.$route.path === '/user') {
     url = `${baseUrl}/api/orders/`
   } else if (this.$route.path === '/runner') {
     url = `${baseUrl}/api/orders/placed`
