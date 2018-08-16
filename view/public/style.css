@@ -1,0 +1,33 @@
+h1 {
+  border: solid;
+  text-align: center;
+  color: orange;
+}
+
+.viewsOption {
+  border: solid
+}
+
+.viewsOption ul {
+  display: flex;
+  padding-left: 0
+}
+
+.viewsOption li {
+  list-style-type: none;
+  flex: 1;
+  text-align: center
+}
+
+.viewsOption li a {
+  text-decoration: none
+}
+
+.user-view {
+  border: solid
+}
+
+.user-view h3 {
+  border: solid;
+  text-align: center
+}
