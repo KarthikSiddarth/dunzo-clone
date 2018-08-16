@@ -5,6 +5,7 @@ const appOptions = {
     showNoOrderWarning: false,
     showStatus: false,
     orderPlacementStatus: '',
+    placedOrders: null
   },
   methods: {
     placeOrder: placeOrderFunction,
@@ -16,9 +17,10 @@ const appOptions = {
       this.showStatus = false
       this.orderPlacementStatus = ''
       if (this.orderDescription) this.showNoOrderWarning = false
-    }
+    },
   }
 }
 
 Vue.component('place-order', placeOrderOptions)
+Vue.component('show-orders', showOrdersOptions)
 const app = new Vue(appOptions)

@@ -24,7 +24,7 @@ function placeOrderFunction () {
 function showOrdersFunction () {
   this.showAssignments = false
   const url = 'http://localhost:8000/api/orders/'
-  fetch(url).then(data => data.json()).then(console.log)
+  fetch(url).then(data => data.json()).then(orders => { this.placedOrders = orders })
 }
 
 function getStatusFunction (response) {
