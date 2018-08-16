@@ -28,7 +28,7 @@ function placeOrderFunction () {
 function showOrdersFunction () {
   this.showAssignments = false
   let url
-  if (this.$route.path === '/') {
+  if (this.$route.path === '/user') {
     url = `${baseUrl}/api/orders/`
   } else if (this.$route.path === '/runner') {
     url = `${baseUrl}/api/orders/placed`
