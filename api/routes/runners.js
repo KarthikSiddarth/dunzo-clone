@@ -19,7 +19,7 @@ router.post('/:id', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  const runner = await Runner.findOne({_id: req.params.id})
+  const runner = await Runner.findOne({_id: req.params.id}).populate('currentOrder')
   res.status(200).json(runner)
 })
 
