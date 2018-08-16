@@ -2,11 +2,11 @@ const router = require('express').Router()
 const Order = require('../models/orders')
 const User = require('../models/users')
 
-router.get('/', async (req, res) => {
+/*  router.get('/', async (req, res) => {
   console.log(req.url)
   let orders = await Order.find().exec()
   res.status(200).json(orders)
-})
+}) */
 
 router.get('/placed', async (req, res) => {
   console.log(req.url)
