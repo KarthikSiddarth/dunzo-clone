@@ -13,6 +13,19 @@
 </head>
 <body>
   <h1>Dunzo Clone</h1>
-  <div id="app"></div>
+  <div id="app">
+    <div>
+      <h3>Welcome, User</h3>
+      <place-order 
+        v-model="orderDescription"
+        @place-order="placeOrder"
+        :show-no-order-warning="showNoOrderWarning"
+        :show-status="showStatus"
+        :order-placement-status="orderPlacementStatus"
+        @view-orders="showOrders" />
+      <show-orders 
+        :orders="placedOrders" />
+    </div>
+  </div>
 </body>
 </html>

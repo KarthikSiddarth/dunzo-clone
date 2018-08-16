@@ -23,13 +23,8 @@ function placeOrderFunction () {
 
 function showOrdersFunction () {
   this.showAssignments = false
-  let url
-  if (this.$route.path === '/') {
-    url = 'http://localhost:8000/api/orders/'
-  } else if (this.$route.path === '/runner') {
-    url = 'http://localhost:8000/api/orders/placed'
-  }
-  fetch(url).then(data => data.json()).then((orders) => { this.placedOrders = orders; console.log(orders) })
+  const url = 'http://localhost:8000/api/orders/'
+  fetch(url).then(data => data.json()).then((orders) => { this.placedOrders = orders })
 }
 
 function getStatusFunction (response) {
@@ -39,24 +34,4 @@ function getStatusFunction (response) {
     return
   }
   this.orderPlacementStatus = 'your order did not get place :('
-}
-
-function assignOrderFunction (order) {
-  const url = 'http://localhost:8000/api/runners/5b73f30faf84a74dc0ef8adf'
-  let postAssignmentOptions = getPostAssignmentOptions(order)
-  fetch(url, postAssignmentOptions).then(data => data.json()).then((res) => { console.log(res) })
-}
-
-function getPostAssignmentOptions (order) {
-  return {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(order)
-  }
-}
-
-function getAssignmentsFunction () {
-  const url = 'http://localhost:8000/api/runners/5b73f30faf84a74dc0ef8adf'
-  this.showAssignments = true
-  fetch(url).then(data => data.json()).then((doc) => { this.assignedOrder = doc.currentOrder })
 }
