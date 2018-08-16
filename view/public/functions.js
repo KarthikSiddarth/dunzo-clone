@@ -38,6 +38,8 @@ function getStatusFunction (response) {
   this.showStatus = true
   if (response.result.status) {
     this.orderPlacementStatus = 'your order is placed :)'
+    this.assignOrder(response.result)
+    this.getUserProfile()
     return
   }
   this.orderPlacementStatus = 'your order did not get place :('
@@ -71,4 +73,19 @@ async function getRunnerProfile () {
 async function getUserProfile () {
   const url = `${baseUrl}/api/users/${userId}`
   this.profile = await (await fetch(url)).json()
+}
+
+async function fulfillOrder () {
+  const url = `${baseUrl}/api/orders/${this.order._id}`
+  const order = {
+    status: 'fulfilled'
+  }
+  const fetchOption = {
+    method: 'PUT',
+    body: JSON.stringify(order),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  await (await fetch(url, fetchOption)).json()
 }
