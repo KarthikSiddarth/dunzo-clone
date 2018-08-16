@@ -20,6 +20,15 @@ const showPlacedOrdersOptions = {
   props: ['orders']
 }
 
+const rootViewOptions = {
+  template: `<div>
+              <ul>
+                <li><router-link to="/runner">I am a runner</router-link></li>
+                <li><router-link to="/user">I am a user</router-link></li>
+              </ul>
+            </div>`
+}
+
 const userViewOptions = {
   template: `<div>
               <h3>Welcome, User</h3>
@@ -45,7 +54,7 @@ const userViewOptions = {
   methods: {
     placeOrder: placeOrderFunction,
     showOrders: showOrdersFunction,
-    getStatus: getStatusFunction,
+    getStatus: getStatusFunction
   },
   watch: {
     orderDescription () {
@@ -58,7 +67,7 @@ const userViewOptions = {
 
 const runnerViewOptions = {
   template: `<div>
-              <h3>Welcome, Runner</h3>
+              <h3>Welcome, {{ profile.name }}</h3>
               <a @click="showOrders">View Placed Orders</a>
               <a @click="getAssignments">Get My Assignments</a>
               <assigned-order
@@ -72,13 +81,18 @@ const runnerViewOptions = {
     return {
       placedOrders: [],
       assignedOrder: {},
-      showAssignments: false
+      showAssignments: false,
+      profile: {}
     }
   },
   methods: {
     showOrders: showOrdersFunction,
     assignOrder: assignOrderFunction,
-    getAssignments: getAssignmentsFunction
+    getAssignments: getAssignmentsFunction,
+    getRunnerProfile
+  },
+  beforeMount () {
+    this.getRunnerProfile()
   }
 }
 

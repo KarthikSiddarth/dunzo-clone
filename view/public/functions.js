@@ -1,3 +1,6 @@
+const baseUrl = 'http://localhost:8000'
+const runnerId = '5b73f01754935f768d1cff79'
+
 function getPostOrderOptions (orderDescription) {
   return {
     method: 'POST',
@@ -10,7 +13,7 @@ function getPostOrderOptions (orderDescription) {
 
 function placeOrderFunction () {
   if (this.orderDescription) {
-    const url = 'http://localhost:8000/api/orders'
+    const url = `${baseUrl}/api/orders`
     this.showNoOrderWarning = false
     let postOrderOptions = getPostOrderOptions(this.orderDescription)
     fetch(url, postOrderOptions)
@@ -25,9 +28,9 @@ function showOrdersFunction () {
   this.showAssignments = false
   let url
   if (this.$route.path === '/') {
-    url = 'http://localhost:8000/api/orders/'
+    url = `${baseUrl}/api/orders/`
   } else if (this.$route.path === '/runner') {
-    url = 'http://localhost:8000/api/orders/placed'
+    url = `${baseUrl}/api/orders/placed`
   }
   fetch(url).then(data => data.json()).then((orders) => { this.placedOrders = orders; console.log(orders) })
 }
@@ -42,7 +45,7 @@ function getStatusFunction (response) {
 }
 
 function assignOrderFunction (order) {
-  const url = 'http://localhost:8000/api/runners/5b73f30faf84a74dc0ef8adf'
+  const url = `${baseUrl}/api/runners/${runnerId}`
   let postAssignmentOptions = getPostAssignmentOptions(order)
   fetch(url, postAssignmentOptions).then(data => data.json()).then((res) => { console.log(res) })
 }
@@ -56,7 +59,12 @@ function getPostAssignmentOptions (order) {
 }
 
 function getAssignmentsFunction () {
-  const url = 'http://localhost:8000/api/runners/5b73f30faf84a74dc0ef8adf'
+  const url = `${baseUrl}/api/runners/${runnerId}`
   this.showAssignments = true
-  fetch(url).then(data => data.json()).then((doc) => { this.assignedOrder = doc.currentOrder })
+  fetch(url).then(data => data.json()).then(doc => { this.assignedOrder = doc.currentOrder })
+}
+
+async function getRunnerProfile () {
+  const url = `${baseUrl}/api/runners/${runnerId}`
+  this.profile = await (await fetch(url)).json()
 }
