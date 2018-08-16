@@ -1,7 +1,8 @@
 Vue.component('place-order', placeOrderOptions)
 Vue.component('show-orders', showPlacedOrdersOptions)
 const userView = Vue.component('user-view', userViewOptions)
-const runnerView = Vue.component('runner-vue', runnerViewOptions)
+const runnerView = Vue.component('runner-view', runnerViewOptions)
+Vue.component = Vue.component('assigned-order', showAssignedOrderOptions)
 
 const router = new VueRouter({
   routes: [

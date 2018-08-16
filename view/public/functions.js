@@ -22,6 +22,7 @@ function placeOrderFunction () {
 }
 
 function showOrdersFunction () {
+  this.showAssignments = false
   let url
   if (this.$route.path === '/') {
     url = 'http://localhost:8000/api/orders/'
@@ -52,4 +53,10 @@ function getPostAssignmentOptions (order) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(order)
   }
+}
+
+function getAssignmentsFunction () {
+  const url = 'http://localhost:8000/api/runners/5b73f30faf84a74dc0ef8adf'
+  this.showAssignments = true
+  fetch(url).then(data => data.json()).then((doc) => { this.assignedOrder = doc.currentOrder })
 }

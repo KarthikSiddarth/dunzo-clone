@@ -60,17 +60,31 @@ const runnerViewOptions = {
   template: `<div>
               <h3>Welcome, Runner</h3>
               <a @click="showOrders">View Placed Orders</a>
+              <a @click="getAssignments">Get My Assignments</a>
+              <assigned-order
+                :order="assignedOrder" 
+                :showAssignments="showAssignments" />
               <show-orders 
                 :orders="placedOrders"
                 @assign-order="assignOrder" />
             </div>`,
   data () {
     return {
-      placedOrders: []
+      placedOrders: [],
+      assignedOrder: {},
+      showAssignments: false
     }
   },
   methods: {
     showOrders: showOrdersFunction,
-    assignOrder: assignOrderFunction
+    assignOrder: assignOrderFunction,
+    getAssignments: getAssignmentsFunction
   }
+}
+
+const showAssignedOrderOptions = {
+  template: `<div>
+              <p v-if="showAssignments">{{ order.description }} <span>status: {{ order.status }}</span><button>Mark as fulfilled</button></p>
+             </div>`,
+  props: ['order', 'showAssignments']
 }
