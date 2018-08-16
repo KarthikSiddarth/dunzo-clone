@@ -7,8 +7,8 @@ const runnerRoute = require('./api/routes/runners')
 const path = require('path')
 
 app.use('/', express.static(path.join(__dirname, 'view', 'public', 'home')))
-app.use('/api/users', express.static(path.join(__dirname, 'view', 'public', 'users')))
-app.use('/api/runners', express.static(path.join(__dirname, 'view', 'public', 'runners')))
+app.use('/users', express.static(path.join(__dirname, 'view', 'public', 'users')))
+app.use('/runners', express.static(path.join(__dirname, 'view', 'public', 'runners')))
 
 app.use(bodyParser.json())
 app.use('/api/orders', orderRoute)
