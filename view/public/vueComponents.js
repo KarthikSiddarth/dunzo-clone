@@ -31,7 +31,8 @@ const rootViewOptions = {
 
 const userViewOptions = {
   template: `<div>
-              <h3>Welcome, User</h3>
+              <h3>Welcome, {{profile.name}}</h3>
+              <div>{{ profile.currentOrder.description }}</div>
               <place-order 
                 v-model="orderDescription"
                 @place-order="placeOrder"
@@ -48,13 +49,15 @@ const userViewOptions = {
       showNoOrderWarning: false,
       showStatus: false,
       orderPlacementStatus: '',
-      placedOrders: []
+      placedOrders: [],
+      profile: {}
     }
   },
   methods: {
     placeOrder: placeOrderFunction,
     showOrders: showOrdersFunction,
-    getStatus: getStatusFunction
+    getStatus: getStatusFunction,
+    getUserProfile
   },
   watch: {
     orderDescription () {
@@ -62,6 +65,9 @@ const userViewOptions = {
       this.orderPlacementStatus = ''
       if (this.orderDescription) this.showNoOrderWarning = false
     }
+  },
+  beforeMount () {
+    this.getUserProfile()
   }
 }
 

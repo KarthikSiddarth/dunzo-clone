@@ -1,5 +1,6 @@
 const baseUrl = 'http://localhost:8000'
 const runnerId = '5b73f01754935f768d1cff79'
+const userId = '5b73ef0954935f768d1cff78'
 
 function getPostOrderOptions (orderDescription) {
   return {
@@ -66,5 +67,10 @@ function getAssignmentsFunction () {
 
 async function getRunnerProfile () {
   const url = `${baseUrl}/api/runners/${runnerId}`
+  this.profile = await (await fetch(url)).json()
+}
+
+async function getUserProfile () {
+  const url = `${baseUrl}/api/users/${userId}`
   this.profile = await (await fetch(url)).json()
 }

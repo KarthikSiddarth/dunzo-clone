@@ -4,12 +4,14 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const orderRoute = require('./api/routes/orders')
 const runnerRoute = require('./api/routes/runners')
+const userRoute = require('./api/routes/users')
 const path = require('path')
 
 app.use('/', express.static(path.join(__dirname, 'view', 'public')))
 app.use(bodyParser.json())
 app.use('/api/orders', orderRoute)
 app.use('/api/runners', runnerRoute)
+app.use('/api/users', userRoute)
 
 mongoose.connect('mongodb://localhost:27017/dunzoClone', { useNewUrlParser: true })
 
