@@ -14,9 +14,7 @@ const router = new VueRouter({
 })
 
 const appOptions = {
-  template: `<div>
-                <router-view></router-view>
-             </div>`,
+  template:`<router-view></router-view>`,
   el: '#app',
   router
 }
