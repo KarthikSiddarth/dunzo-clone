@@ -14,6 +14,12 @@ router.get('/placed', async (req, res) => {
   res.status(200).json(orders)
 })
 
+router.get('/:id', async (req, res) => {
+  console.log(req.url)
+  let order = await Order.findOne({_id: req.params.id}).exec()
+  res.status(200).json(order)
+})
+
 router.post('/', async (req, res) => {
   console.log(req.body)
   try {
