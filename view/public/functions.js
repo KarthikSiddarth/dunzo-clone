@@ -1,6 +1,4 @@
 const baseUrl = 'http://localhost:8000'
-const runnerId = '5b73f30faf84a74dc0ef8adf'
-const userId = '5b73f2faaf84a74dc0ef8ade'
 
 function getPostOrderOptions (orderDescription) {
   return {
