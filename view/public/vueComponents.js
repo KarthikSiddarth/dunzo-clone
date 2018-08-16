@@ -21,7 +21,7 @@ const showPlacedOrdersOptions = {
 }
 
 const rootViewOptions = {
-  template: `<div>
+  template: `<div class="viewsOption">
               <ul>
                 <li><router-link to="/runner">I am a runner</router-link></li>
                 <li><router-link to="/user">I am a user</router-link></li>
@@ -30,7 +30,7 @@ const rootViewOptions = {
 }
 
 const userViewOptions = {
-  template: `<div>
+  template: `<div class="user-view">
               <h3>Welcome, {{profile.name}}</h3>
               <div>{{ profile.currentOrder.description }}</div>
               <place-order 
@@ -72,7 +72,7 @@ const userViewOptions = {
 }
 
 const runnerViewOptions = {
-  template: `<div>
+  template: `<div class="runner-view">
               <h3>Welcome, {{ profile.name }}</h3>
               <a @click="showOrders">View Placed Orders</a>
               <a @click="getAssignments">Get My Assignments</a>
