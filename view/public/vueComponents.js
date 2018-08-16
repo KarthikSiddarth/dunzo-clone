@@ -32,7 +32,7 @@ const rootViewOptions = {
 const userViewOptions = {
   template: `<div>
               <h3>Welcome, {{profile.name}}</h3>
-              <div>{{ profile.currentOrder.description }}</div>
+              <div>current order: {{ profile.currentOrder.description }}</div>
               <place-order 
                 v-model="orderDescription"
                 @place-order="placeOrder"
@@ -74,6 +74,7 @@ const userViewOptions = {
 const runnerViewOptions = {
   template: `<div>
               <h3>Welcome, {{ profile.name }}</h3>
+              <div>current order: {{ profile.currentOrder.description }}</div>
               <a @click="showOrders">View Placed Orders</a>
               <a @click="getAssignments">Get My Assignments</a>
               <assigned-order
