@@ -18,11 +18,11 @@ const placeOrderOptions = {
                     id="order-placement-status">{{ orderPlacementStatus }}
                   </p>
                 </div>
-               </div>
-              <a 
-                @click="$emit('view-orders')" 
-                id="user-view-orders-link">View Placed Orders
-              </a>
+                <a 
+                  @click="$emit('view-orders')" 
+                  id="user-view-orders-link">
+                    View Placed Orders 
+                </a>
              </div>`,
   props: ['showNoOrderWarning', 'showStatus', 'orderPlacementStatus']
 }
@@ -108,9 +108,9 @@ const runnerViewOptions = {
                 :order="profile.currentOrder" 
                 :showAssignments="showAssignments" />
               <show-orders 
+                @click="getRunnerProfile"
                 v-if="!showAssignments"
-                :orders="placedOrders"
-                @assign-order="assignOrder" />
+                :orders="placedOrders" />
             </div>`,
   data () {
     return {
