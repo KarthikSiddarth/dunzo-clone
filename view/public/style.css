@@ -1,16 +1,25 @@
 h1 {
-  border: solid;
   text-align: center;
   color: orange;
-  text-decoration: initial;
 }
 
 #brand {
   text-decoration-line: unset;
 }
 
+h1 span {
+  background-color: #2980b9;
+  margin-left: 1%;
+  font-family: "helvetica", "sans-serif";
+  padding: 1%;
+  padding-bottom: 0;
+  border: none;
+  color: white;
+  box-shadow: 1px 1px 1px black;
+}
+
 .viewsOption {
-  border: solid
+  border: solid;
 }
 
 .viewsOption ul {
@@ -28,18 +37,20 @@ h1 {
   text-decoration: none
 }
 
-.user-view {
-  border: solid
-}
-
 .user-view h3 {
-  border: solid;
-  text-align: center
+  text-align: center;
+  font-family: "Arial", "sans-serif";
 }
 
 #current-order-display {
-  border: solid orange;
-  text-align: center
+  text-align: center;
+  font-family: "Times", "serif";
+  color: #34495e;
+  width: 70%;
+  margin: 1em auto;
+  box-shadow: 1px 1px 1px orchid, -1px -1px 0.5px orchid;
+  border-radius: 10px;
+  padding-top: 0.5%
 }
 
 #user-orders-management {
@@ -47,17 +58,49 @@ h1 {
   display: grid; 
 }
 
+#place-order-container {
+  border: solid;
+  display: grid
+}
+
+#input-order-container {
+  display: flex;
+  border: solid;
+  justify-content: center;
+}
+
+#input-order-container input {
+  flex: 2
+}
+
+#show-status-container {
+  border: solid yellow;
+  text-align: center;
+}
+
+#user-view-orders-link {
+  text-align: center;
+  cursor: pointer;
+}
+
 #show-orders-container {
   border: solid aqua;
 }
 
+
 #show-orders-container ul {
-  list-style-type: none
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.each-order {
+  border: solid blue;
+  text-align: center;
 }
 
 .runner-view h3 {
   border: solid;
-  text-align: center
+  text-align: center;
 }
 
 #runner-view-orders-link-container {
@@ -66,15 +109,16 @@ h1 {
 
 #runner-view-orders-link-container a {
   flex: 1;
-  text-align: center
+  text-align: center;
+  cursor: pointer;
 }
 
 #render-assignments-container {
   border: solid;
-  text-align: center
+  text-align: center;
 }
 
 #render-assignments-container p button,span {
-  border: solid
+  border: solid;
 }
 
