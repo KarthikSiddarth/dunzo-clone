@@ -80,6 +80,7 @@ const runnerViewOptions = {
                 :order="assignedOrder" 
                 :showAssignments="showAssignments" />
               <show-orders 
+                v-if="!showAssignments"
                 :orders="placedOrders"
                 @assign-order="assignOrder" />
             </div>`,
