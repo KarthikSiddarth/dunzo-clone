@@ -85,5 +85,10 @@ async function fulfillOrder () {
       'Content-Type': 'application/json'
     }
   }
-  await (await fetch(url, fetchOption)).json()
+  const updated = (await 
+    (await fetch(url, fetchOption)).json()
+  ).message === 'order updated'
+  if (updated) {
+    this.order.status = 'fulfilled'
+  }
 }
