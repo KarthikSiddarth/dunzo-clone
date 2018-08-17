@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8000'
+const baseUrl = window.location.host
 
 function getPostOrderOptions (orderDescription) {
   return {
