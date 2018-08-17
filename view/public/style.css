@@ -65,7 +65,8 @@ h1 span {
   margin: 1em auto;
   box-shadow: 1px 1px 1px #34495e, -1px -1px 0.5px #34495e;
   border-radius: 10px;
-  padding-top: 0.5%
+  padding-top: 0.5%;
+  overflow: hidden
 }
 
 #user-orders-management {
@@ -132,6 +133,7 @@ h1 span {
   border-radius: 10px;
   padding-top: 0.3em;
   padding-bottom: 0.5em;
+  overflow: auto;
 }
 
 .each-order span {
@@ -160,7 +162,10 @@ h1 span {
   border-radius: 10px;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
-  margin-top: 1em
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1em;
+  overflow: auto;
 }
 
 #render-assignments-container p button,span {
