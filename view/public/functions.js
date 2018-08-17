@@ -23,7 +23,7 @@ function placeOrderFunction () {
   this.showNoOrderWarning = true
 }
 
-function showOrdersFunction () {
+async function showOrdersFunction () {
   this.showAssignments = false
   let url
   if (this.$route.path === '/user') {
@@ -31,7 +31,7 @@ function showOrdersFunction () {
   } else if (this.$route.path === '/runner') {
     url = `${baseUrl}/api/orders/placed`
   }
-  fetch(url).then(data => data.json()).then((orders) => { this.placedOrders = orders; console.log(orders) })
+  this.placedOrders = (await (await fetch(url)).json())
 }
 
 function getStatusFunction (response) {
@@ -45,10 +45,10 @@ function getStatusFunction (response) {
   this.orderPlacementStatus = 'your order did not get place :('
 }
 
-function assignOrderFunction (order) {
+async function assignOrderFunction (order) {
   const url = `${baseUrl}/api/runners/${runnerId}`
   let postAssignmentOptions = getPostAssignmentOptions(order)
-  fetch(url, postAssignmentOptions).then(data => data.json()).then((res) => { console.log(res) })
+  console.log((await fetch(url, postAssignmentOptions)).json())
 }
 
 function getPostAssignmentOptions (order) {
@@ -59,10 +59,8 @@ function getPostAssignmentOptions (order) {
   }
 }
 
-function getAssignmentsFunction () {
-  const url = `${baseUrl}/api/runners/${runnerId}`
+async function showAssignedFunction () {
   this.showAssignments = true
-  fetch(url).then(data => data.json()).then(doc => { this.assignedOrder = doc.currentOrder })
 }
 
 async function getRunnerProfile () {

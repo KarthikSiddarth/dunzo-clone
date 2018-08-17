@@ -1,5 +1,10 @@
 h1 {
   text-align: center;
+  color: orange;
+}
+
+#brand {
+  text-decoration-line: unset;
 }
 
 h1 span {
@@ -10,11 +15,11 @@ h1 span {
   padding-bottom: 0;
   border: none;
   color: white;
-  box-shadow: 1px 1px 1px black
+  box-shadow: 1px 1px 1px black;
 }
 
 .viewsOption {
-  border: solid
+  border: solid;
 }
 
 .viewsOption ul {
