@@ -43,34 +43,47 @@ h1 span {
   color: #34495e;
   width: 70%;
   margin: 1em auto;
-  box-shadow: 1px 1px 1px orchid, -1px -1px 0.5px orchid;
+  box-shadow: 1px 1px 1px #34495e, -1px -1px 0.5px #34495e;
   border-radius: 10px;
   padding-top: 0.5%
 }
 
 #user-orders-management {
-  border: solid green;
   display: grid; 
 }
 
 #place-order-container {
-  border: solid;
   display: grid
 }
 
 #input-order-container {
   display: flex;
-  border: solid;
   justify-content: center;
 }
 
 #input-order-container input {
-  flex: 2
+  flex: 2;
+  margin: 0 0.5em;
 }
 
 #show-status-container {
-  border: solid yellow;
   text-align: center;
+}
+
+#no-order-warning, #order-placement-status {
+  background-color: #e74c3c;
+  width: 50%;
+  margin: 1em auto;
+  box-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "courier";
+  padding-top: 0.5%;
+  font-weight: bold;
+}
+
+#order-placement-status {
+  background-color: #2ecc71;
 }
 
 #user-view-orders-link {
@@ -78,19 +91,26 @@ h1 span {
   cursor: pointer;
 }
 
-#show-orders-container {
-  border: solid aqua;
-}
-
-
 #show-orders-container ul {
   list-style-type: none;
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
 .each-order {
-  border: solid blue;
   text-align: center;
+  width: 70%;
+  margin-bottom: 0.3em;
+  box-shadow: 1px 1px 1px #34495e, -1px -1px 0.5px #34495e;
+  border-radius: 10px;
+  padding-top: 0.3em;
+  padding-bottom: 0.5em;
+}
+
+.each-order span {
+  border: none
 }
 
 .runner-view h3 {
