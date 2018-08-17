@@ -31,3 +31,45 @@ h1 {
   border: solid;
   text-align: center
 }
+
+#current-order-display {
+  border: solid orange;
+  text-align: center
+}
+
+#user-orders-management {
+  border: solid green;
+  display: grid; 
+}
+
+#show-orders-container {
+  border: solid aqua;
+}
+
+#show-orders-container ul {
+  list-style-type: none
+}
+
+.runner-view h3 {
+  border: solid;
+  text-align: center
+}
+
+#runner-view-orders-link-container {
+  display: flex;
+}
+
+#runner-view-orders-link-container a {
+  flex: 1;
+  text-align: center
+}
+
+#render-assignments-container {
+  border: solid;
+  text-align: center
+}
+
+#render-assignments-container p button,span {
+  border: solid
+}
+
