@@ -59,6 +59,7 @@ const userViewOptions = {
     placeOrder: placeOrderFunction,
     showOrders: showOrdersFunction,
     getStatus: getStatusFunction,
+    assignOrder: assignOrderFunction,
     getUserProfile
   },
   watch: {
@@ -99,7 +100,6 @@ const runnerViewOptions = {
   methods: {
     showOrders: showOrdersFunction,
     getAssignments: getAssignmentsFunction,
-    assignOrder: assignOrderFunction,
     getRunnerProfile
   },
   beforeMount () {
