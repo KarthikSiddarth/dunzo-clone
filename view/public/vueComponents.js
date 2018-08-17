@@ -32,7 +32,7 @@ const rootViewOptions = {
 const userViewOptions = {
   template: `<div>
               <h3>Welcome, {{profile.name}}</h3>
-              <div v-if="profile.currentOrder">current order: {{ profile.currentOrder.description }}</div>
+              <div v-if="profile.currentOrder.status!=='fulfilled'">current order: {{ profile.currentOrder.description }}</div>
               <place-order 
                 v-model="orderDescription"
                 @place-order="placeOrder"
