@@ -1,4 +1,4 @@
-const baseUrl = window.location.host
+const baseUrl = ''
 
 function getPostOrderOptions (orderDescription) {
   return {
