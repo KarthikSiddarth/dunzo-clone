@@ -44,8 +44,8 @@ const showPlacedOrdersOptions = {
 const rootViewOptions = {
   template: `<div class="viewsOption">
               <ul>
-                <li><router-link to="/runner">I am a runner</router-link></li>
-                <li><router-link to="/user">I am a user</router-link></li>
+                <li id="runner-view-link"><router-link to="/runner">I am a runner</router-link></li>
+                <li id="user-view-link"><router-link to="/user">I am a user</router-link></li>
               </ul>
             </div>`
 }
