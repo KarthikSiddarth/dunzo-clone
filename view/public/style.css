@@ -19,7 +19,7 @@ h1 span {
 }
 
 .viewsOption {
-  border: solid;
+  margin: 20vh 10vw;
 }
 
 .viewsOption ul {
@@ -30,21 +30,36 @@ h1 span {
 .viewsOption li {
   list-style-type: none;
   flex: 1;
-  text-align: center
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 1em;
+  margin-left: 1em;
+  padding: 0.5em 0 0.5em 0;
 }
 
 .viewsOption li a {
-  text-decoration: none
+  text-decoration: none;
+  color: #fff;
+  font-family: "helvetica"
 }
 
 .user-view h3 {
   text-align: center;
-  font-family: "Arial", "sans-serif";
+  font-family: "Arial";
 }
+
+#runner-view-link {
+  background-color: #00B294;
+}
+
+#user-view-link {
+  background-color: #EA005E;
+}
+
 
 #current-order-display {
   text-align: center;
-  font-family: "Times", "serif";
+  font-family: "Times";
   color: #34495e;
   width: 70%;
   margin: 1em auto;
@@ -64,20 +79,14 @@ h1 span {
   text-decoration: underline dotted
 }
 
-#user-orders-management a:hover {
-  margin-top: 1em;
-}
-
 #place-order-container {
-  display: grid
-}
-
-#input-order-container {
   display: flex;
   justify-content: center;
+  width: 70%;
+  margin: 0 auto;
 }
 
-#input-order-container input {
+#place-order-container input {
   flex: 2;
   margin: 0 0.5em;
 }
@@ -131,7 +140,7 @@ h1 span {
 
 .runner-view h3 {
   text-align: center;
-  font-family: "Arial", "sans-serif";
+  font-family: "Arial";
 }
 
 #runner-view-orders-link-container {
@@ -155,6 +164,5 @@ h1 span {
 }
 
 #render-assignments-container p button,span {
-  border: solid;
 }
 
