@@ -1,7 +1,15 @@
 h1 {
-  border: solid;
   text-align: center;
-  color: orange;
+}
+
+h1 span {
+  background-color: #e74c3c;
+  margin-left: 1%;
+  font-family: "helvetica", "sans-serif";
+  padding: 1%;
+  padding-bottom: 0;
+  border: none;
+  color: white;
 }
 
 .viewsOption {
@@ -94,6 +102,7 @@ h1 {
 #runner-view-orders-link-container a {
   flex: 1;
   text-align: center;
+  cursor: pointer;
 }
 
 #render-assignments-container {
