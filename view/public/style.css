@@ -138,7 +138,10 @@ h1 span {
 }
 
 .each-order span {
-  border: none
+  border: none;
+  background-color: #FF8C00;
+  padding: 0 1% 0 1%;
+  color: #fff;
 }
 
 .runner-view h3 {
@@ -167,8 +170,11 @@ h1 span {
   margin: 0 auto;
   margin-top: 1em;
   overflow: auto;
+  
 }
 
-#render-assignments-container p button,span {
+#render-assignments-container span {
+  background-color: #FF8C00;
+  padding: 0 1% 0 1%;
+  color: #fff;
 }
-
