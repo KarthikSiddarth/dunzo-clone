@@ -57,7 +57,6 @@ const userViewOptions = {
     placeOrder: placeOrderFunction,
     showOrders: showOrdersFunction,
     getStatus: getStatusFunction,
-    assignOrder: assignOrderFunction,
     getUserProfile
   },
   watch: {
@@ -95,6 +94,7 @@ const runnerViewOptions = {
   methods: {
     showOrders: showOrdersFunction,
     getAssignments: getAssignmentsFunction,
+    assignOrder: assignOrderFunction,
     getRunnerProfile
   },
   beforeMount () {
@@ -104,7 +104,7 @@ const runnerViewOptions = {
 
 const showAssignedOrderOptions = {
   template: `<div>
-              <p v-if="showAssignments">{{ order.description }} <span>status: {{ order.status }}</span><button @click="fulfillOrder">Mark as fulfilled</button></p>
+              <p v-if="showAssignments">{{ order.description }} <span>status: {{ order.status }}</span><button v-if="order.status!=='fulfilled'" @click="fulfillOrder">Mark as fulfilled</button></p>
              </div>`,
   props: ['order', 'showAssignments'],
   methods: {
