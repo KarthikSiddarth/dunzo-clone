@@ -1,12 +1,25 @@
 const placeOrderOptions = {
   template: `<div id="user-orders-management">
                <div id="place-order-container">
-                 <input type="text" placeholder="Place your order" @input="$emit('input', $event.target.value)">
-                 <button @click="$emit('place-order')">place</button>
-                 <p v-if="showNoOrderWarning" id="no-order-warning">No order has been described</p>
-                 <p v-if="showStatus" id="order-placement-status">{{ orderPlacementStatus }}</p>
+                  <input 
+                    type="text" 
+                    placeholder="Place your order"
+                    @input="$emit('input', $event.target.value)">
+                  <button 
+                    @click="$emit('place-order')">place</button>
+                  <p 
+                    v-if="showNoOrderWarning" 
+                    id="no-order-warning">No order has been described
+                  </p>
+                  <p 
+                    v-if="showStatus" 
+                    id="order-placement-status">{{ orderPlacementStatus }}
+                  </p>
                </div>
-              <a @click="$emit('view-orders')" id="user-view-orders-link">View Placed Orders</a>
+              <a 
+                @click="$emit('view-orders')" 
+                id="user-view-orders-link">View Placed Orders
+              </a>
              </div>`,
   props: ['showNoOrderWarning', 'showStatus', 'orderPlacementStatus']
 }
@@ -14,11 +27,14 @@ const placeOrderOptions = {
 const showPlacedOrdersOptions = {
   template: `<div id="show-orders-container">
               <ul>
-                <li class="each-order" v-for="order of orders">{{ order.description }} 
-                  <span>status: {{ order.status }}</span>
+                <li 
+                  class="each-order" 
+                  v-for="order of orders">
+                    {{ order.description }}
+                    <span>status: {{ order.status }}</span>
                 </li>
               </ul>
-             </div>`,
+            </div>`,
   props: ['orders']
 }
 
@@ -34,7 +50,11 @@ const rootViewOptions = {
 const userViewOptions = {
   template: `<div class="user-view">
               <h3>Welcome, {{profile.name}}</h3>
-              <p v-if="profile.currentOrder? profile.currentOrder.status!=='fulfilled' : false" id="current-order-display">current order: {{ profile.currentOrder.description }}</p>
+              <p 
+                v-if="profile.currentOrder? profile.currentOrder.status!=='fulfilled' : false"
+                id="current-order-display">
+                  current order: {{ profile.currentOrder.description }}
+              </p>
               <place-order 
                 v-model="orderDescription"
                 @place-order="placeOrder"
@@ -108,8 +128,16 @@ const runnerViewOptions = {
 
 const showAssignedOrderOptions = {
   template: `<div id="render-assignments-container">
-              <p v-if="showAssignments">{{ order.description }} <span>status: {{ order.status }}</span><button v-if="order.status!=='fulfilled'" @click="fulfillOrder">Mark as fulfilled</button></p>
-             </div>`,
+              <p v-if="showAssignments">
+                {{ order.description }} 
+                <span>status: {{ order.status }}</span>
+                <button 
+                  v-if="order.status!=='fulfilled'" 
+                  @click="fulfillOrder">
+                    Mark as fulfilled
+                </button>
+              </p>
+            </div>`,
   props: ['order', 'showAssignments'],
   methods: {
     fulfillOrder
