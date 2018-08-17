@@ -85,5 +85,6 @@ async function fulfillOrder () {
       'Content-Type': 'application/json'
     }
   }
+  this.getRunnerProfile()
   await (await fetch(url, fetchOption)).json()
 }
