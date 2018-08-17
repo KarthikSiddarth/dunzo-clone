@@ -1,10 +1,14 @@
 const placeOrderOptions = {
   template: `<div id="user-orders-management">
-               <div id="place-order-container">
+							 <div id="place-order-container">
+							 	<div id="input-order-container">
                  <input type="text" placeholder="Place your order" @input="$emit('input', $event.target.value)">
-                 <button @click="$emit('place-order')">place</button>
+								 <button @click="$emit('place-order')">place</button>
+								</div>
+								<div id="show-status-container">
                  <p v-if="showNoOrderWarning" id="no-order-warning">No order has been described</p>
-                 <p v-if="showStatus" id="order-placement-status">{{ orderPlacementStatus }}</p>
+								 <p v-if="showStatus" id="order-placement-status">{{ orderPlacementStatus }}</p>
+								</div>
                </div>
               <a @click="$emit('view-orders')" id="user-view-orders-link">View Placed Orders</a>
              </div>`,
