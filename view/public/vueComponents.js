@@ -79,10 +79,10 @@ const runnerViewOptions = {
               <h3>Welcome, {{ profile.name }}</h3>
               <div id="runner-view-orders-link-container">
                 <a @click="showOrders">View Placed Orders</a>
-                <a @click="getAssignments">Get My Assignments</a>
+                <a @click="showAssigned">Get My Assignments</a>
               </div>
               <assigned-order
-                :order="assignedOrder" 
+                :order="profile.currentOrder" 
                 :showAssignments="showAssignments" />
               <show-orders 
                 v-if="!showAssignments"
@@ -92,14 +92,13 @@ const runnerViewOptions = {
   data () {
     return {
       placedOrders: [],
-      assignedOrder: {},
       showAssignments: false,
       profile: {}
     }
   },
   methods: {
     showOrders: showOrdersFunction,
-    getAssignments: getAssignmentsFunction,
+    showAssigned: showAssignedFunction,
     getRunnerProfile
   },
   beforeMount () {

@@ -59,10 +59,8 @@ function getPostAssignmentOptions (order) {
   }
 }
 
-function getAssignmentsFunction () {
-  const url = `${baseUrl}/api/runners/${runnerId}`
+async function showAssignedFunction () {
   this.showAssignments = true
-  fetch(url).then(data => data.json()).then(doc => { this.assignedOrder = doc.currentOrder })
 }
 
 async function getRunnerProfile () {
