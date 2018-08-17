@@ -42,17 +42,49 @@ h1 {
   display: grid; 
 }
 
+#place-order-container {
+  border: solid;
+  display: grid
+}
+
+#input-order-container {
+  display: flex;
+  border: solid;
+  justify-content: center;
+}
+
+#input-order-container input {
+  flex: 2
+}
+
+#show-status-container {
+  border: solid yellow;
+  text-align: center;
+}
+
+#user-view-orders-link {
+  text-align: center;
+  cursor: pointer;
+}
+
 #show-orders-container {
   border: solid aqua;
 }
 
+
 #show-orders-container ul {
-  list-style-type: none
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.each-order {
+  border: solid blue;
+  text-align: center;
 }
 
 .runner-view h3 {
   border: solid;
-  text-align: center
+  text-align: center;
 }
 
 #runner-view-orders-link-container {
@@ -61,15 +93,15 @@ h1 {
 
 #runner-view-orders-link-container a {
   flex: 1;
-  text-align: center
+  text-align: center;
 }
 
 #render-assignments-container {
   border: solid;
-  text-align: center
+  text-align: center;
 }
 
 #render-assignments-container p button,span {
-  border: solid
+  border: solid;
 }
 
