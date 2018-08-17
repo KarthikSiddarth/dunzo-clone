@@ -3,7 +3,7 @@ Vue.component('show-orders', showPlacedOrdersOptions)
 const rootView = Vue.component('root-view', rootViewOptions)
 const userView = Vue.component('user-view', userViewOptions)
 const runnerView = Vue.component('runner-view', runnerViewOptions)
-Vue.component = Vue.component('assigned-order', showAssignedOrderOptions)
+Vue.component('assigned-order', showAssignedOrderOptions)
 
 const router = new VueRouter({
   routes: [
